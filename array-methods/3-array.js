@@ -113,13 +113,11 @@ const fruitBasket = [
   'orange',
   'fig'
 ];
-// Not complete
-var res = {};
-function summorize() {
-  return fruitBasket.reduce((acc, item) => {
-      res.item = acc;
-  }, {});
-};
+
+const count = fruitBasket.reduce( (tally, fruit) => {
+  tally[fruit] = (tally[fruit] || 0) + 1 ;
+  return tally;
+} , {})
 
 // Bonus Question (Solve only if you have time)
 var matrix = [
