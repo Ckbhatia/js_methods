@@ -14,6 +14,11 @@ var words = [
 
 // Write a function uniqueArray that receives an array of words as a parameter. And remove the duplicates, and return a new array. 
 // (indexOf)
+function uniqueArray(words) {
+  words.forEach(item => {
+    words.indexOf(item) && words.lastIndexOf(item) ? words.splice(words.lastIndexOf(item), 1) : console.log('false');
+  })
+}
 
 
 
@@ -29,6 +34,13 @@ var words2 = [
 ];
 
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
+let doesWordExist = (arr, word) => {
+  if (arr.includes(word)) {
+    return true;
+} else {
+    return false;
+  }
+}
 
 
 
@@ -49,6 +61,9 @@ var words3 = [
 
 
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
+let howManyTimes = (words, word) => {
+  words.includes();
+}
 
 
 
@@ -74,6 +89,14 @@ let data = [
   }
 ]
 
+function totalPop() {
+  return data.reduce((acc, item) => {
+    if (item.country !== "China") {
+      acc = acc + item.pop;
+    }
+    return acc;
+  }, 0);
+};
 
 // Use reduce method and summorize the collection like
 // { banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1 }
@@ -91,7 +114,10 @@ const fruitBasket = [
   'fig'
 ];
 
-
+const count = fruitBasket.reduce( (tally, fruit) => {
+  tally[fruit] = (tally[fruit] || 0) + 1 ;
+  return tally;
+} , {})
 
 // Bonus Question (Solve only if you have time)
 var matrix = [
@@ -118,3 +144,14 @@ var matrix = [
 ];
 // In the 20×20 grid above What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
 // Write a function greatestProduct to find the answer!
+function greatestProduct() {
+  let newArr = [];
+  for (let k = 0; k < matrix.length; k++) {
+    for(let u = 0; u < matrix[k].length; u++) {
+      newArr.push(matrix[k][u]);
+    }
+  }
+  newArr.sort((a, b) => a - b);
+  let bigNum = newArr[newArr.length - 1];
+  return newArr;
+}
